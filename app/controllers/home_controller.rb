@@ -7,7 +7,9 @@ class HomeController < ApplicationController
   end
 
   def clear
-    cookies.delete(:iiif_auth, Rails.application.config.iiif_auth_domain)
+    cookies.delete(:iiif_auth, domain: Rails.application.config.iiif_auth_domain)
+    session.destroy
+    render 'logout'
   end
 
 

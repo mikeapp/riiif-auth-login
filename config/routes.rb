@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   get '/login', to: 'home#index'
   get '/token', to: "token#supply_token"
-  get '/clear', to: "home#clear"
+  get '/logout', to: "home#clear"
 end
