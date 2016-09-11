@@ -54,3 +54,4 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'pg'
 
 gem 'bootstrap'
+gem 'devise-bootstrap-views'

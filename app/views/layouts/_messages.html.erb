@@ -1,0 +1,13 @@
+<% flash.each do |key, value|
+  cssclass= 'info'
+  cssclass= 'warning' if key=='alert'
+%>
+    <div class="alert alert-<%= cssclass %>">
+      <a href="#" data-dismiss="alert" class="close">×</a>
+      <ul>
+        <li>
+          <%= value %>
+        </li>
+      </ul>
+    </div>
+<% end %>
