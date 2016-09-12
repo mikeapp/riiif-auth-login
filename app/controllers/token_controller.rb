@@ -4,6 +4,7 @@ class TokenController < ApplicationController
   def supply_token
     json = Hash.new
     json['accessToken'] = session[:iiif_auth]
+    status = 401 if json['accessToken'].nil?
     json['messageId'] = params[:messageId] if params[:messageId]
     @domain = params[:domain]
     @values = JSON.unparse(json).html_safe
