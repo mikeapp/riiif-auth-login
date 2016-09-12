@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   end
 
   def clear
-    cookies.delete(:iiif_auth, domain: Rails.application.config.iiif_auth_domain)
+    cookies.delete(:iiif_auth, origin: Rails.application.config.iiif_auth_domain)
     session.destroy
     render 'logout'
   end
@@ -22,7 +22,7 @@ class HomeController < ApplicationController
     cookies[:iiif_auth] = {
         value: encrypted,
         expires: 5.minutes.from_now,
-        domain: Rails.application.config.iiif_auth_domain
+        origin: Rails.application.config.iiif_auth_domain
     }
     # and in session
     session[:iiif_auth] = encrypted
