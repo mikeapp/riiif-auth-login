@@ -18,11 +18,12 @@ class HomeController < ApplicationController
   def set_auth_cookie
     encryptor = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.iiif_key_base)
     encrypted = encryptor.encrypt_and_sign(current_user.id)
+    domain =  Rails.application.config.iiif_auth_domain
     # domain-level cookie
     cookies[:iiif_auth] = {
         value: encrypted,
         expires: 5.minutes.from_now,
-        origin: Rails.application.config.iiif_auth_domain
+        domain: domain
     }
     # and in session
     session[:iiif_auth] = encrypted
