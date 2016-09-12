@@ -1,0 +1,11 @@
+<html>
+<body>
+<script>
+  window.parent.postMessage(
+      <%= @values %>,
+      <%= @domain %>
+  );
+</script>
+</body>
+</html>
+
